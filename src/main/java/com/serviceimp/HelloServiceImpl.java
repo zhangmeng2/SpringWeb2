@@ -14,9 +14,11 @@ public class HelloServiceImpl implements HelloService {
 		ResultInfo resultInfo=new ResultInfo();
 		int accountCount=userMapper.selectAccount(userName, password);
 		if(accountCount>0){
+			resultInfo.setResultCode(0);
 			resultInfo.setMessage("this account has exist!");
 		}else{
 			userMapper.insertUser(userName, password);
+			resultInfo.setResultCode(1);
 			resultInfo.setMessage("register successful!");
 		}
 		return resultInfo;

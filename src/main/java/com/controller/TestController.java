@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.entity.ResultInfo;
 import com.service.HelloService;
 
 @Controller
@@ -19,12 +20,13 @@ public class TestController {
 	
 	@RequestMapping("/register")
 	public String register(String userName,String password){
-		boolean registerInfo=helloService.isExistAccount(userName, password);
-		if(registerInfo){
+		ResultInfo registerInfo=helloService.isExistAccount(userName, password);
+		if(registerInfo.getResultCode()==1){
 			//注册成功
+			return "welcome";
 		}else{
 			//注册失败
+			return "register";
 		}
-		return "register";
 	}
 }

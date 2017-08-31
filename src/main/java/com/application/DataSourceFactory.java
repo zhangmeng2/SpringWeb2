@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @MapperScan(basePackages="com.mapper")
 public class DataSourceFactory {
 	
-	@Bean(initMethod="init",destroyMethod="close")
+	@Bean   /*(initMethod="init",destroyMethod="close")*/
 	public static DataSource getDataSource()  
 	{  
 	String driver = "oracle.jdbc.OracleDriver";  

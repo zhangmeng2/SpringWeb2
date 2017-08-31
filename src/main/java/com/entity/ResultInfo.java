@@ -4,6 +4,8 @@ import java.util.List;
 
 public class ResultInfo {
      private String message;
+     // 0:失败，1：成功
+     private int resultCode;
      private List<?> result;
      
 	public String getMessage() {
@@ -17,6 +19,12 @@ public class ResultInfo {
 	}
 	public void setResult(List<?> result) {
 		this.result = result;
+	}
+	public int getResultCode() {
+		return resultCode;
+	}
+	public void setResultCode(int resultCode) {
+		this.resultCode = resultCode;
 	}
      
      
