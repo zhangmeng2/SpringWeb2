@@ -1,13 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mapper.UserMapper">
-       <select id="selectAccount" parameterType="STRING">
+       <resultMap type="com.entity.User" id="userMap">
+            <result column="id" property="userId"/>
+            <result column="user_name" property="userName"/>
+            <result column="password" property="password"/>
+            <result column="birthday" property="birthday"/>
+            <result column="sex" property="sex"/>
+            <result column="mobile" property="mobile"/>
+             <result column="email" property="email"/>
+            <result column="is_delete" property="isDelete"/>
+       </resultMap>
+       <select id="selectAccount" parameterType="STRING" resultMap="userMap">
              select * from t_user where 1=1
              <if test="userName !=null and userName !=''">
-                   and userName=#{userName}
-             </if>
-             <if test="password !=null and password !=''">
-                   and password=#{password}
+                   and user_name=#{userName}
              </if>
        </select>
+       <insert id="insertUser" parameterType="com.entity.User">
+             insert into t_user(
+                      id,
+                      user_name,
+                      password,
+                      birthday,
+                      sex,
+                      mobile,
+                      email,
+                      note,
+                      is_delete
+                    )values(
+                        t_user_sequence.nextval,
+                        #{userName},
+                        #{password},
+                        #{birthday},
+                        #{sex},
+                        #{mobile},
+                        #{email},
+                        #{note},
+                        #{isDelete}
+                    )
+       </insert>
 </mapper>

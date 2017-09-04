@@ -6,7 +6,7 @@
 </head>
 <body>
    <h1>Welcom to Spittr!</h1>
-   <a href="/spittles/index">Spittles</a>
-   <a href="/spittles/register">Register</a>
+   <a href="/SpringWeb2/spittles/">Spittles</a>
+   <a href="/SpringWeb2/spittles/register">Register</a>
 </body>
 </html>
